@@ -31,4 +31,5 @@ const App: React.FC = () => {
 
 export default App;
 
-// do from 38 to 41 -> useRef Hook
+// continue on 52:14  ... Q:, why was the id passed as 'key' prop from TodoList to SingleTodo? (in video)
+// TODO from 38:00 to 41:00 -> useRef Hook and other 2 hooks -> Do Hooks when you get to 1:03 
