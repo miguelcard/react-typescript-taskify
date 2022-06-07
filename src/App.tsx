@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InputField from './components/InputField';
+import TodoList from './components/TodoList';
+import { Todo } from './model';
 
-function App() {
+
+// its a React functional component
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>(""); // change to TODO int
+  const [todos, setTodos] = useState<Todo[]>([]); // list of todos shown
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault(); // prevents page on submitting / on reloading everything! we dont need a whole reload
+
+    // add todo if it exists
+    if (todo) {
+      setTodos( prevTodos => [...prevTodos , {id: Date.now(), title: todo, isDone: false}] )
+      setTodo("")    
+    } 
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span className='heading'>Taskify</span>
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      <TodoList todos={todos} setTodos={setTodos}/>
     </div>
   );
 }
 
 export default App;
+
+// do from 38 to 41 -> useRef Hook
