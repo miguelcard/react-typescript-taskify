@@ -13,8 +13,8 @@ const TodoList: React.FC<Props> = ({ todos, dispatch }) => {
     return (
         <div className='container'>
             <Droppable droppableId='OpenTodos'>
-                {(provided) => (            // you need to put your droppable inside a callback fucntion just because thats how the library handles it, also the args
-                    <div className="todos" ref={provided.innerRef} {...provided.droppableProps}>
+                {(provided, snapshot) => (            // you need to put your droppable inside a callback fucntion just because thats how the library handles it, also the args
+                    <div className={`todos ${snapshot.isDraggingOver ? "dragactive" : ""}`} ref={provided.innerRef} {...provided.droppableProps}>
                         <span className='todos__heading'> Active Tasks</span>
                         <ul>
                             {todos.map((t, index) => {
@@ -28,8 +28,8 @@ const TodoList: React.FC<Props> = ({ todos, dispatch }) => {
                 )}
             </Droppable>
             <Droppable droppableId='CompletedTodos'>
-                {(provided) => (            // you need to put your droppable inside a callback fucntion just because thats how the library handles it, also the args
-                    <div className="todos completed" ref={provided.innerRef} {...provided.droppableProps}>
+                {(provided, snapshot) => (            // you need to put your droppable inside a callback fucntion just because thats how the library handles it, also the args
+                    <div className={`todos completed ${snapshot.isDraggingOver ? "dragcomplete" : ""}`} ref={provided.innerRef} {...provided.droppableProps}>
                         <span className='todos__heading'>Completed Tasks</span>
                         <ul>
                             {todos.map((t, index) => {

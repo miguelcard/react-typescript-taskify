@@ -72,7 +72,6 @@ function todosReducer(state: Todo[], action: TodoActions): Todo[] {
     case 'complete-task':
       return state.map(t => (t.id === action.payload.id) ? { ...t, isDone: !t.isDone } : t);
     case 'add-task-to-position':
-      console.log('source index: '+action.payload.index1 + ' destination index: ' + action.payload.index2);
       let todosTemp = state,
         toMove = todosTemp.splice(action.payload.index1, 1)[0],
         moveToIndex = action.payload.index2;
