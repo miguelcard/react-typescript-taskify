@@ -1,6 +1,6 @@
 .input {
     display: flex;
-    width: 90%;
+    width: 95%;
     position: relative;
     align-items: center;
 }
@@ -44,11 +44,26 @@
     box-shadow: 0 0 5px black;
 }
 
-.todos {
+.container {
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    flex-wrap: wrap;
+    width: 95%;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-startyyy;
+  }
+
+.todos {
+  display: flex;
+  width: 47.5%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgb(29, 189, 189);
+}
+
+.todos__heading {
+  font-size: 30px;
+  color: white;
 }
 
 .todos__single {
@@ -104,4 +119,8 @@
       width: 95%;
       margin-bottom: 10px;
     }
+}
+
+.completed {
+  background-color: rgb(197, 98, 98);
 }
